@@ -78,6 +78,14 @@
          사용자(Client)
 ```
 
+### 실제 Make 시나리오
+
+아래는 Make에서 구현한 실제 자동화 시나리오 화면이다.
+
+![Make 자동업무 노드](./png/자동업무%20노드.png)
+
+Webhook으로 요청을 수신한 뒤 Router를 통해 처리 흐름을 분기하고, Google Sheets에 데이터를 저장한 후 Webhook Response를 통해 결과를 반환하도록 구성하였다.
+
 ---
 
 ## 5. 처리 흐름
@@ -176,8 +184,6 @@ Webhook Response 모듈을 통해 결과를 반환한다.
 | priority | String | 우선순위  |
 | due_date | String | 마감일   |
 
----
-
 ### 응답(Response)
 
 | 필드명            | 타입      | 설명       |
@@ -202,8 +208,6 @@ Webhook Response 모듈을 통해 결과를 반환한다.
 ## 8. 사용 방법
 
 ### API 호출
-
-아래 명령어를 실행하여 업무를 등록한다.
 
 ```bash
 curl -X POST "https://hook.us2.make.com/9ytjc33j71a9drfkd1ussr955exif8an" \
@@ -247,6 +251,14 @@ curl -X POST "https://hook.us2.make.com/9ytjc33j71a9drfkd1ussr955exif8an" \
   "received_at": "2026-06-08T15:00:00"
 }
 ```
+
+### 실제 실행 결과
+
+아래는 API 호출 후 Make에서 정상 처리된 결과 화면이다.
+
+![Make 자동업무 실행결과](./png/자동업무결과.png)
+
+Webhook 요청이 정상 수신되었고 Google Sheets 저장 및 응답 반환 과정이 성공적으로 수행되었음을 확인할 수 있다.
 
 ---
 
